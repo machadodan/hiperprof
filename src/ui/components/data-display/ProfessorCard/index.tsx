@@ -1,34 +1,41 @@
+import { ProfessorInterface } from "@data/@types/professor";
 import { Button, Typography } from "@mui/material";
-import { BoxAvatarStyled, BoxCardStyled, BoxContainsStyled, ImageStyled } from "./style";
+import { BoxAvatarStyled, BoxContainsStyled, ImageStyled } from "./style";
 
-export default function ProfessorCard() {
+export interface ProfessorCardProps {
+  professor: ProfessorInterface;
+  onClick: (professor: ProfessorInterface)=> void;
+}
 
-    return (
-      <BoxCardStyled>
-        <BoxAvatarStyled>
-          <ImageStyled src="https://github.com/machadodan.png" alt="" />
-        </BoxAvatarStyled>
-        <BoxContainsStyled>
-          <div className="text-container">
-            <Typography variant="h6" className="descricao" paragraph>
-              Nome
-            </Typography>
+export default function ProfessorCard({ professor, onClick, }: ProfessorCardProps) {
+  return (
+    <>
+      <BoxAvatarStyled>
+        {professor.foto_perfil ? (
+          <ImageStyled src={professor.foto_perfil} alt="" />
+        ) : (
+          <ImageStyled src={"/user.svg"} alt="" style={{ width: "50" }} />
+        )}
+      </BoxAvatarStyled>
+      <BoxContainsStyled>
+        <div className="text-container">
+          <Typography variant="h6" className="descricao" paragraph>
+            {professor.nome}
+          </Typography>
 
-            <Typography
-              sx={{ display: "flex", alignItems: "center" }}
-              className="descricao"
-              variant="body2"
-              paragraph
-            >
-              Descrição Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem earum neque dignissimos aperiam, repudiandae corrupti harum sit consequuntur id possimus consectetur ipsa autem amet, vel ducimus nostrum debitis? Delectus, laboriosam.
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae tenetur autem repellendus sunt sit, nihil deserunt aperiam officia praesentium modi vitae voluptate repudiandae harum delectus! Nemo provident quasi dolore illo?
-            </Typography>
-          </div>
-          <Button variant="outlined"
-            color="inherit"
-            onClick={() => {}}
-          >Ver detalhes</Button>
-        </BoxContainsStyled>
-      </BoxCardStyled>
-    );
+          <Typography
+            sx={{ display: "flex", alignItems: "center" }}
+            className="descricao"
+            variant="body2"
+            paragraph
+          >
+            {professor.descricao}
+          </Typography>
+        </div>
+        <Button variant="outlined" color="inherit" onClick={() => onClick(professor)}>
+          Ver detalhes
+        </Button>
+      </BoxContainsStyled>
+    </>
+  );
 }
