@@ -8,6 +8,7 @@ import {
 import { title } from "process";
 import { PropsWithChildren } from "react";
 
+// Criando componente Dialog
 interface DialogProps {
   isOpen?: boolean;
   onClose?: () => void;
@@ -15,6 +16,7 @@ interface DialogProps {
   onConfirm?: () => void;
   title?: string;
 }
+
 export default function Dialog({
   isOpen = true,
   onClose,
