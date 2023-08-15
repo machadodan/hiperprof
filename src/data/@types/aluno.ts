@@ -1,3 +1,4 @@
+//interface aluno
 export interface AlunoInterface {
   id?: number;
   nome: string;
