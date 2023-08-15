@@ -3,6 +3,7 @@ const CurrencyFormatter = new Intl.NumberFormat("pt-BR", {
     currency: "BRL",
 });
 
+// formatação de moeda
 export const TextFormatService = {
     currency(valor: string | undefined | number): string {
         if(!valor) return "";

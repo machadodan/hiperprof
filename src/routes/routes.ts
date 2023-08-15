@@ -1,6 +1,7 @@
 import { NextRouter } from "next/router";
 
 
+// servico de rotas
 export const Router = {
   home: {
     name: "/",

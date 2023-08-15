@@ -1,6 +1,7 @@
 import { styled } from "@mui/material/styles";
 import { Box } from "@mui/material";
 
+// styles detalhe do professor
 export const BoxCardProfessor = styled(Box)`
     display: grid;
     grid-template-columns: 300px 1fr;

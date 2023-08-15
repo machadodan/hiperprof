@@ -1,6 +1,7 @@
 import { Box, CircularProgress, Typography } from "@mui/material";
 import { ReactElement } from "react";
 
+// component de Fetch
 interface FetchProps<T = unknown> {
     data: T[]  | undefined;
     render: (data: T[]) => ReactElement;

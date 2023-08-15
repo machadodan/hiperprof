@@ -6,3 +6,5 @@ export const BrowserService = {
         });
     },
 };
+
+// serviço de navegação

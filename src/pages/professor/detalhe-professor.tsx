@@ -6,6 +6,8 @@ import { TextFormatService } from "@data/services/TextFormatService";
 import { Button, CircularProgress, Container, Typography } from "@mui/material";
 import {BoxCardProfessor, BoxDescription, BoxImage} from "@styles/pages/professor/detalhe-professor.stales";
 
+
+// Criação de componente Detalhes professor
 export default function DetalheProfessorPage() {
     const { professor, professores, selecionarProfessor } =
       useDetalheProfessor();

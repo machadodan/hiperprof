@@ -7,39 +7,38 @@ import { Router } from "@routes/routes";
 
 
 export default function usePesquisaProfessor() {
-    const router = useRouter(),
+  const router = useRouter(),
     [search, setSearch] = useState<string>(router.query.search as string),
     [professores, setProfessores] = useState<ProfessorInterface[]>(),
     [timeOutRef, setTimeOutRef] = useState<NodeJS.Timeout>();
 
+  //acompanha na o q digita no teclado na url
+  useEffect(() => {
+    ApiService.get("/api/professores", {
+      params: { q: search },
+    })
+      .then(({ data }: AxiosResponse<ProfessorInterface[]>) => {
+        setProfessores(data);
+      })
+      .catch(() => setProfessores([]));
+  }, [search]);
 
-    useEffect(() => {
-        ApiService.get("/api/professores", {
-            params: {q: search},
-     }).then(
-            ({data}: AxiosResponse<ProfessorInterface[]>) => {
-             setProfessores(data);
-        })
-        .catch(() => setProfessores([]));
-    }, [search]);
+  function onSearch(value: string) {
+    clearTimeout(timeOutRef);
+    const time = setTimeout(() => {
+      setSearch(value);
+      //acompanha na o q digita no teclado na url
+      Router.pesquisaProfessor.push(router, value);
+    }, 1000);
+    setTimeOutRef(time);
+  }
 
-    function onSearch(value: string) {
-        clearTimeout(timeOutRef)
-        const time = setTimeout(() => {
-          setSearch(value);
-          //acompanha na o q digita no teclado na url
-          Router.pesquisaProfessor.push(router, value);
-        }, 1000);     
-        setTimeOutRef(time);        
-    }
+  // função para selecionar professor
+  function selecionarProfessor(professor: ProfessorInterface) {
+    sessionStorage.setItem("hiperprof_professor", JSON.stringify(professor));
+    Router.detalheProfessor.push(router, search);
+  }
 
-
-    // função para selecionar professor
-    function selecionarProfessor(professor: ProfessorInterface) {
-        sessionStorage.setItem("hiperprof_professor", JSON.stringify(professor));
-        Router.detalheProfessor.push(router, search);
-    }
-
-    return { professores, onSearch, selecionarProfessor };
+  return { professores, onSearch, selecionarProfessor };
 }
 
