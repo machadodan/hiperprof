@@ -1,4 +1,5 @@
 import PageTitle from "@components/data-display/PageTitle";
+import Link from "@components/navigation/Link";
 import useIndex from "@data/hooks/pages/useIndex";
 import { TextField, Icon, Button } from "@mui/material";
 import { BoxButtons, HomeContainer } from "@styles/pages/index.styles";
@@ -9,6 +10,7 @@ export default function Home() {
 
   return (
     <HomeContainer onSubmit={onBuscarProfessor}>
+      <Link href="/">Link</Link>
       <PageTitle
         title="ENCONTRE UM PROFESSOR IDEAL PARA VOCÊ!"
         subtitle="Pesquise pelo professor ideal para você"
