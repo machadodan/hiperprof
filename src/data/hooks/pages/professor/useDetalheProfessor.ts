@@ -32,9 +32,9 @@ export default function useDetalheProfessor() {
       Router.home.push(router);
     }
 
-    // return () => {
-    // sessionStorage.removeItem("hiperprof_professor");
-    // };
+     return () => {
+     sessionStorage.removeItem("hiperprof_professor");
+     };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -76,7 +76,7 @@ export default function useDetalheProfessor() {
       data_aula: formatDataJson(aluno.data_aula as string),
     } as AlunoInterface;
 
-    ApiService.post(`/api/professores/${professor?.id}/alunos`, newDate).then(
+    await ApiService.post(`/api/professores/${professor?.id}/alunos`, newDate).then(
       () => {
         setOpenDialog(false);
         setAluno({data_aula: "", email:"", nome: ""});
