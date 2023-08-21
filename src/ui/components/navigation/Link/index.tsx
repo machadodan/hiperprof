@@ -11,14 +11,12 @@ interface LinkProps extends MuiLinkProps, NextLinkProps {
 
 export default function Link({
     children,
-    ...props}: PropsWithChildren<LinkProps>) {
-
+    ...props
+}: PropsWithChildren<LinkProps>) {
     return (
-   
-        <MuiLink component={NextLink}>
-            {children}
-        </MuiLink>
-   
+      <MuiLink component={NextLink} {...props}>
+        {children}
+      </MuiLink>
     );
 }
 
