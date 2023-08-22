@@ -19,7 +19,21 @@ export const Router = {
   },
   cadastroProfessor: {
     name: "/professor/cadastro-professor",
-    push: function (router: NextRouter ) {
+    push: function (router: NextRouter) {
+      router.push({ pathname: this.name });
+    },
+    icon: "",
+  },
+  listaDeAlunos: {
+    name: "/professor/",
+    push: function (router: NextRouter) {
+      router.push({ pathname: this.name });
+    },
+    icon: "person",
+  },
+  login: {
+    name: "/login",
+    push: function (router: NextRouter) {
       router.push({ pathname: this.name });
     },
     icon: "",
