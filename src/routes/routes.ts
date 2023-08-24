@@ -17,6 +17,13 @@ export const Router = {
     },
     icon: "",
   },
+  detalheProfessor: {
+    name: "/professor/detalhe-professor",
+    push: function (router: NextRouter, search?: string) {
+      router.push({ pathname: this.name, query: { search } });
+    },
+    icon: "",
+  },
   cadastroProfessor: {
     name: "/professor/cadastro-professor",
     push: function (router: NextRouter) {
