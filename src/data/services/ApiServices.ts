@@ -30,17 +30,17 @@ async function handleTokenRefresh(erro: AxiosError) {
         refresh_token: refreshToken,
       }
     ).then(({ data }) => {
-      localStorage.setItem("token_hiperProf", data.token);
+      localStorage.setItem("token_hiperprof", data.token);
       localStorage.setItem("refresh_token_hiperprof", data.refresh_token);
     });
     
     return await ApiService({
-        ...erro.config,
-        headers:{
-            ...erro.config?.headers,
-            Authorization: `Bearer ${localStorage.getItem("token_hiperProf")}`,
-        },
-    })
+      ...erro.config,
+      headers: {
+        ...erro.config?.headers,
+        Authorization: `Bearer ${localStorage.getItem("token_hiperprof")}`,
+      },
+    });
 
   } catch (error) {
     return Promise.reject(erro);
