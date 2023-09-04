@@ -2,7 +2,6 @@ import {
   ProfessorCadastroInterface,
   ProfessorErroInterface,
 } from "@data/@types/professor";
-import { BrowserService } from "./BrowserService";
 export const FormSchemaService = {
   cadastroProfessor(
     professor: ProfessorCadastroInterface

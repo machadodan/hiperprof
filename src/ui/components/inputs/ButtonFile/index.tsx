@@ -1,15 +1,14 @@
-import { Input } from "@mui/material";
 import { PropsWithChildren } from "react";
 import { BoxStyled } from "./styles";
 
 interface ButtonFileProps {
-    onChange?: (files: FileList) => void;
+  onChange?: (files: FileList) => void;
 }
 
-export default function ButtonFile({ 
-    children,
-    onChange,
- }: PropsWithChildren<ButtonFileProps>) {
+export default function ButtonFile({
+  children,
+  onChange,
+}: PropsWithChildren<ButtonFileProps>) {
   return (
     <BoxStyled>
       <label>
@@ -22,6 +21,7 @@ export default function ButtonFile({
             }
           }}
         />
+
         {children}
       </label>
     </BoxStyled>
