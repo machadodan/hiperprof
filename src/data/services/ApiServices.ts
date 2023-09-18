@@ -1,7 +1,8 @@
 import axios, { AxiosError } from "axios";
 
 export const ApiService = axios.create({
-  baseURL: "https://alunos.treinaweb.com.br/hyperprof",
+  //baseURL: "https://alunos.treinaweb.com.br/hyperprof",
+  baseURL: "http://127.0.0.1:8000",
   headers: {
     "Content-Type": "application/json",
     "Accept-Language": "pt-BR",

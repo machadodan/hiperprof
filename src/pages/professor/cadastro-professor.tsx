@@ -189,7 +189,7 @@ export default function CadastroProfessorPage() {
           )}
         </Box>
         <Snackbar
-          open={snackMessage.length > 0}
+          open={snackMessage.length > 0 }
           message={snackMessage}
           autoHideDuration={4000}
           onClose={() => setSnackMessage("")}
